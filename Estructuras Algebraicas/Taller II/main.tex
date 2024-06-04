@@ -1,0 +1,108 @@
+\input{encabezado}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{graphics}
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\newpage 
+
+\begin{homeworkProblem}
+    Sea $M=\begin{pmatrix}
+       a&b\\
+       c&d\\
+   \end{pmatrix}$ y $N=\begin{pmatrix}
+       x&u\\
+       -y&-v\\
+   \end{pmatrix}$ matrices sobre un anillo R en el cual $b,x$ son unidades. Si $L=MN=\begin{pmatrix}
+       0&0\\
+       0&*\\
+   \end{pmatrix}$. Muestre que $L=0$. ¿Que puede decir en el caso de que uno de los elementos $b$ o $x$ no sean una unidad en $R$?
+   \begin{solucion}
+       Note que:
+       $$MN=\begin{pmatrix}
+           ax-by&au-bv\\
+           cx-dy&cu-dv\\
+       \end{pmatrix}=\begin{pmatrix}
+           0&0\\
+           0&*\\
+       \end{pmatrix}$$
+       Así nos queda el siguiente sistema de ecuaciones:
+       \begin{align*}
+           ax-by&=0\\
+           au-bv&=0\\
+           cx-dy&=0\\
+           cu-dv&=*\\
+       \end{align*}
+       Como $x$ es unidad tenemos de la primera ecuación que $a=byx^{-1}$, luego como $b$ es unidad, de la segunda ecuación tenemos que $v=b^{-1}au$ y si sustituimos $a$ tenemos que $v=b^{-1}(byx^{-1})u=yx^{-1}u$. De la tercera ecuación obtenemos que $c=dyx^{-1}$. Sustituyendo $c$ y $v$ en la cuarta ecuación tenemos que $*=dyx^{-1}u-dyx^{-1}u=0$. Concluyendo así que $L=0.$\\
+
+       Ahora consideremos el caso donde $b$ no es unidad pero $x$ si lo es y veamos que podemos decir en este caso. De la primera ecuación seguimos teniendo que $a=byx^{-1}$, Ahora si sustituimos en la segunda ecuación tenemos que $b(yx^{-1}u-v)=0$, Si son un divisor de $0$ no hay nada que podamos concluir de aquí en adelante. Si $yx^{-1}u-v=0$ podemos concluir nuevamente que $L=0$ sin la necesidad de que $b$ sea unidad, pero si es $b=0$ solo podemos concluir $a=0$ y poco mas.\\
+
+       Ahora supongamos que $b$ es el que es unidad. Primero de la primera ecuación ahora tenemos que $y=b^{-1}ax$ sustituyendo en la tercera ecuación tenemos que $(c-db^{-1}a)x=0$ y de aquí procedemos con el mismo razonamiento previo si $c-db^{-1}a=0$ podemos concluir que $*=0$ sin necesidad de que $x$ sea unidad, pero si $x=0$ solo podemos concluir que $y=0$ y si son divisores de 0 no podemos concluir nada mas.
+
+       \qed
+   \end{solucion}
+\end{homeworkProblem}
+\newpage
+\begin{homeworkProblem}
+ Sea $R$ un anillo conmutativo. Demuestre que $R[[x]]$ es un dominio entero.
+ \begin{solucion}
+     Note que la proposición de esta manera es falsa ya que si consideramos $R=\mathbb{Z}/6\mathbb{Z}$ este es un anillo conmutativo, pero no es dominio entero ya que $2\cdot3=0$, eso quiere decir que 2 y 3 son divisores de 0. Además recordemos que $\mathbb{Z}/6\mathbb{Z}\subseteq\mathbb{Z}/6\mathbb{Z}[x]\subseteq\mathbb{Z}/6\mathbb{Z}[[x]]$ esto quiere decir que no es un dominio entero.\\
+     Ahora consideremos la proposición pero suponiendo que $R$ es un dominio entero ya que en este caso si es verdadera.\\
+     Sean $\sum a_nx^n$ y $\sum b_mx^m$ dos sucesiones formales distintas de $0$ en $R[[x]]$, es decir existen mínimos $i,j\in\mathbb{N}$ tales que $a_i\neq 0$ y $b_j\neq 0$. Luego considere $(\sum a_nx^n\sum b_mx^m)$. Como estos son los mínimos quiere decir que el coeficiente de $x^{i+j}$ es $a_ib_j$, como $R$ es un dominio entero tenemos que $a_ib_j\neq 0$ luego como al menos un coeficiente es distinto de 0 quiere decir que $(\sum a_nx^n\sum b_mx^m)\neq 0$ esto quiere decir que $R[[x]]$ es un dominio entero.
+     
+     \qed
+ \end{solucion}
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+ Encuentre un anillo $R$ y un polinomio $p(x)=p_0+p_1x+\dots+p_nx^n$ de grado al menos 2 tal que $p(x)=0$ admita infinitas soluciones en $R.$
+ \begin{solucion}
+     Considere $R=M_2(\mathbb{Z})$ es decir el anillo de matrices $2\times2$ con entradas en los enteros, y el polinomio $P(X)=X^2$ donde $P(X)\in R[x]$. Consideremos la matriz $A=\begin{pmatrix}
+         0&a\\
+         0&0\\
+     \end{pmatrix}$ donde $a\in\mathbb{Z}$ arbitrario. Observe que:
+     $$A^2=\begin{pmatrix}
+         0&a\\
+         0&0\\
+     \end{pmatrix}\begin{pmatrix}
+         0&a\\
+         0&0\\
+     \end{pmatrix}=\begin{pmatrix}
+         0&0\\
+         0&0\\
+     \end{pmatrix}=0$$
+     Eso quiere decir que $P(A)=0$. Como el $a$ es cualquier entero eso quiere decir que hay infinitas matrices en $R$ que son solución de $P(X)=0$.
+     
+     \qed
+ \end{solucion}
+\end{homeworkProblem}
+
+\newpage
+\begin{homeworkProblem}
+ Sea $R=\mathcal{C}([0,1],\mathbb{R})$ (el anillo de funciones continuas $f:[0,1]\rightarrow\mathbb{R}$). Sea $L\neq\{0\}$ un ideal propio de $R$. Muestre que existe $x_0\in[0,1]$ tal que $f(x_0)=0$ para toda $f\in L.$
+ \begin{solucion}
+     Note que toda $f\in L$ debe tener al menos un punto en $[0,1]$ donde se haga 0 ya que si $f\neq 0$ en $[0,1]$ entonces $\frac{1}{f}\in R$ y como $f\in L$ entonces $1=\frac{1}{f}f\in L$ eso quiere decir que $L=R$, pero estamos suponiendo que $L$ es propio así que se debe de tener lo que dijimos inicialmente. Ahora falta demostrar que todas las funciones tienen una raíz en común. Supongamos que esto no ocurre, luego existen $f,g\in L$ tales que si $f(x)=0$ entonces $g(x)\neq 0$ y viceversa. Como $L$ es un ideal $f^2,g^2\in L$ y además $f^2+g^2\in L$, note que esta ultima función siempre es distinta de $0$ ya que $f^2,g^2\geq 0$ y además ellas no se hacen 0 al tiempo. Por lo tanto podemos hacer lo mismo que hicimos al principio y eso nos llevara a la contradicción de que $L=R.$ De esta manera concluimos que todas las funciones tienen al menos una raíz en común, es decir que existe $x_0\in[0,1]$ tal que $f(x_0)=0$ para toda $f\in L$
+
+     \qed
+ \end{solucion}
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    Pruebe que $p(x)=x^3+2x+1$ no esta en el ideal $\langle x^3+1\rangle$ de $\mathbb{Z}/3\mathbb{Z}[x].$
+    \begin{solucion}
+        Suponga que $x^3+2x+1\in\langle x^3+1\rangle$, luego $x^3+2x+1=(x^3+1)q(x)$ donde $q(x)\in\mathbb{Z}/3\mathbb{Z}[x]$ Ahora si evaluamos en 2 en ambos lados de la igualdad debería de dar lo mismo en $\mathbb{Z}/3\mathbb{Z}$, pero:
+        $$\phi_2(x^3+2x+1)=2^3+2\cdot2+1=13=1\neq0=0\cdot q(2)=9\cdot q(2)=\phi_2((x^3+1)q(x))$$
+        Donde $\phi$ es el homomorfismo de evaluación. Luego esto es una contradicción. Así concluimos que $p(x)$ no esta en el ideal $\langle x^3+1\rangle$ de $\mathbb{Z}/3\mathbb{Z}[x].$
+
+        \qed
+    \end{solucion}
+\end{homeworkProblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
