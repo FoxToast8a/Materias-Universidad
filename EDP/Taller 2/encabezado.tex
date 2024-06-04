@@ -1,0 +1,244 @@
+ \documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{positioning, automata}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}    
+\usepackage{hyperref}       
+\usepackage{url}        
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{amsfonts}   
+\usepackage{nicefrac}       
+\usepackage{microtype}      
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{ragged2e}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage[spanish]{babel} % ¡Solo una vez!
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{manfnt}
+\usepackage{layout}
+\usepackage{manfnt}
+\usepackage{phaistos}
+\usepackage{polynom}
+\usepackage[most]{tcolorbox}
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
+
+
+\setcounter{page}{0}
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+%|#*******************************************************************#|
+\pagestyle{fancy}
+\lhead{Taller}
+\chead{\hmwkClass\ : \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problema \arabic{#1} continúa en la siguiente página\ldots}\nobreak{}
+    \nobreak\extramarks{Problema \arabic{#1} (continuación}{Problema \arabic{#1} continúa en la siguiente página\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problema \arabic{#1} (continuación)}{Problema \arabic{#1} continúa en la siguiente página\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problema \arabic{#1}}{}\nobreak{}
+}
+
+
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problema \arabic{homeworkProblemCounter}}{}\nobreak
+%margen de una pagina
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[1][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problema \arabic{homeworkProblemCounter}:}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+
+%|#*******************************************************************#|
+
+\newcommand{\hmwkTitle}{Taller 2}
+\newcommand{\hmwkClass}{EDP I}
+\newcommand{\hmwkUniversity}{Universidad Nacional de Colombia}
+\newcommand{\hmwkAuthorName}{Edgar Santiago Ochoa Quiroga}
+\newcommand{\hmwkInstructor}{\empty}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}\large{\textit{\hmwkUniversity}}\\
+    \vspace{1.5in} \textrm{\hmwkInstructor}
+    \vspace{1.5in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+%
+%   Nuevos tipos de columna
+%
+\newcolumntype{C}{>{$}c<{$}}
+\newcolumntype{L}{>{$}l<{$}}
+\newcolumntype{R}{>{$}r<{$}}
+% ---------------------------
+%|  Various Helper Commands  |
+% ---------------------------
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% -For derivatives-
+\newcommand{\deriv}[2]{\frac{\mathrm{d #1 }}{\mathrm{d} #2} }
+
+%For derivatives of degree >1
+\newcommand{\mderiv}[3]{\frac{\mathrm{d^{#3} #1 }}{\mathrm{d} #2} }
+
+% -For partial derivatives-
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% -Integral dx-
+\newcommand{\dx}{\hspace{3pt}\mathrm{d}}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\\\\\large Solución:\\ \hspace*{5pt}}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+
+%TcolorBox
+
+% Definir colores y la tcolorbox de la solución
+\definecolor{myDColor}{HTML}{101010} 
+
+\definecolor{myLColor}{RGB}{153,204,255} 
+
+\definecolor{LinkColor}{HTML}{9669d9} 
+
+
+\newtcolorbox{solucion}[1][]{%
+    enhanced,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    before upper={\parindent15pt},
+    breakable,
+    boxrule = 0pt,
+    frame hidden,
+    borderline west = {4pt}{0pt}{myDColor},
+    colback = myLColor!5,
+    coltitle = myLColor!5,
+    sharp corners,
+    rounded corners = southeast,
+    arc is angular,
+    arc = 3mm,
+    attach boxed title to top left,
+    boxed title style = {%
+        enhanced,
+        colback = myDColor,
+        colframe = myDColor,
+        top = 0pt,
+        bottom = 0pt,
+        sharp corners,
+        rounded corners = northeast,
+        arc is angular,
+        arc = 2mm,
+        rightrule = 0pt,
+        bottomrule = 0pt,
+        toprule = 0pt,
+    },
+    title = {\bfseries\large Solución:}, 
+    overlay unbroken={%
+        \node[anchor=west, color=black!70] at (title.east) {#1};
+        \path[fill = tcbcolback!80!black] 
+            ([yshift = 3mm]interior.south east) -- ++(-0.4,-0.1) -- ++(0.1,-0.2);
+    },
+    overlay first = {%
+        \node[anchor=west, color=black!70] at (title.east) {#1};
+        \path[fill = tcbcolback!80!black] 
+            ([yshift = 3mm]interior.south east) -- ++(-0.4,-0.1) -- ++(0.1,-0.2);
+    },
+    overlay middle={%
+        \path[fill = tcbcolback!80!black] 
+            ([yshift = -3mm]interior.north east) -- ++(-0.4,0.1) -- ++(0.1,0.2);
+        \path[fill = tcbcolback!80!black] 
+            ([yshift = 3mm]interior.south east) -- ++(-0.4,-0.1) -- ++(0.1,-0.2);
+    },
+    overlay last={%
+        \path[fill = tcbcolback!80!black] 
+            ([yshift = -3mm]interior.north east) -- ++(-0.4,0.1) -- ++(0.1,0.2);
+        \path[fill = tcbcolback!80!black] 
+            ([yshift = 3mm]interior.south east) -- ++(-0.4,-0.1) -- ++(0.1,-0.2);
+    },
+    extras middle and last = { rounded corners = northeast }
+}
+\newcommand{\qed}{\hfill\includegraphics[height=2ex]{Demo_face-removebg-preview .png}}
