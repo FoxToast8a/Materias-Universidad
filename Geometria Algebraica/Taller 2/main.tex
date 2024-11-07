@@ -48,6 +48,28 @@
         En el primer caso tenemos que $h(p)=\hat{f}(p)=f(a_1,\ldots,a_n)=0,$ ya que $(a_1,\ldots,a_n)\in V(S_1).$ En el otro caso tenemos que $h(p)=\hat{g}(p)=g(b_1,\ldots,b_m)=0,$ ya que $(b_1,\ldots,b_m)\in V(S_2).$ Concluyendo así que para todo $h\in \widehat{S}_1\cup\widehat{S}_2$ tenemos que $h(p)=0$ y por tanto $p\in V(\widehat{S}_1\cup\widehat{S}_2),$ mostrando así que $V\times W\subseteq V(\widehat{S}_1\cup\widehat{S}_2).$ Ahora sea $p\in V(\widehat{S}_1\cup\widehat{S}_2)$ luego para todo $h\in \widehat{S}_1\cup\widehat{S}_2 .$ $h(p)=0.$ Para los $h\in \widehat{S}_1 $ tenemos que $h(p)=\hat{f}(p)=f(p_1,\ldots,p_n).$ Como es arbitrario, tenemos que para todo $f\in S_1,$ $f(p_1,\ldots,p_n)=0,$ es decir, $(p_1,\ldots,p_n)\in V(S_1)=V.$ De manera similar para los $h\in \widehat{S}_2,$ tenemos que $0=h(p)=\hat{g}(p)=g(p_{n+1},\ldots,p_{n+m}),$ concluyendo análogamente que $(p_{n+1},\ldots,p_{n+m})\in V(S_2)=W.$ Luego por como lo definimos concluimos que $p\in V\times W,$ mostrando que $V(\widehat{S}_1\cup\widehat{S}_2) \subseteq V\times W.$ Por la doble continencia, concluimos la igualdad y por tanto que $V\times W$ es algebraico. \qed
     \end{solucion}
 \end{homeworkProblem}
+\begin{homeworkProblem}
+    Calcule las componentes irreducibles de $V(2x^2+3x^2-11,x^2-y^2-3)\subseteq A^2(\C).$
+    \begin{solucion}
+        Primero notemos que $V:=V(2x^2+3x^2-11,x^2-y^2-3)=V(2x^2+3x^2-11)\cap V(x^2-y^2-3).$ Luego dado $(x,y)\in V,$ tiene que ser solución del siguiente sistema de ecuaciones
+        $$
+            \begin{cases}
+                2x^2+3x^2-11=0,\\
+                x^2-y^2-3=0.
+            \end{cases}
+        $$
+        Multiplicando la segunda ecuación por 3 y sumando ambas ecuaciones obtenemos
+        \begin{align*}
+            0&=2x^2+3x^2-11+3x^2-3y^2-9\\
+            &=5x^2-20,
+        \end{align*}
+         esta ecuación se satisface si $x=2$ o $x=-2.$ Para hallar $y$, reemplazamos los valores de $x$ en $x^2-y^2-3=0,$ así
+         $$(2)^2-y^2-3=(-2)^2-y^2-3=1-y^2=0.$$
+         Por lo tanto $y=1$ o $y=-1,$ así concluimos que $V=\{(2,1)\}\cup\{(2,-1)\}\cup\{(-2,1)\}\cup\{(-2,-1)\}.$ Es decir las componentes irreducibles de $V(2x^2+3x^2-11,x^2-y^2-3)$ son $V_1=\{(2,1)\},V_2=\{(2,-1)\},V_3=\{(-2,1)\}$ y $V_4=\{(-2,-1)\}.$
+         
+         \qed
+    \end{solucion}
+\end{homeworkProblem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
